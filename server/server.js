@@ -12,28 +12,31 @@ dotEnv.config()
 const app = express()
 const PORT = process.env.PORT || 3001
 
-// Connect to the database
+// Connexion à la base de données
 dbConnection()
 
-// Handle CORS issues
+// Gestion des problèmes CORS
 app.use(cors())
 
-// Request payload middleware
+// Middleware pour traiter les données des requêtes
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// Handle custom routes
+// Gestion des routes personnalisées
 app.use('/api/v1/user', require('./routes/userRoutes'))
+app.use('/api/v1/transactions', require('./routes/transactionRoutes'))
 
-// API Documentation
+// Documentation de l'API
 if (process.env.NODE_ENV !== 'production') {
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 
+// Route racine
 app.get('/', (req, res, next) => {
   res.send('Hello from my Express server v2!')
 })
 
+// Démarrage du serveur
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`)
 })
