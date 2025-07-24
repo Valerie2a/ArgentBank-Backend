@@ -18,6 +18,6 @@ router.get("/", validateToken , getAllTransactions);
 router.get("/:transactionId", validateToken, getTransactionById);
 
 // PUT /transactions/:transactionId - Modifier une transaction
-router.put("/:transactionId", validateToken, updateTransactionById);
+router.patch("/:transactionId", validateToken, updateTransactionById);
 
 module.exports = router;
