@@ -1,72 +1,93 @@
-# Argent Bank API
+# Argent Bank - Backend
 
-This codebase contains the code needed to run the backend for Argent Bank.
+Ce dépôt contient le code source du backend de l’application bancaire **Argent Bank**.  
+Il fournit les routes API nécessaires à l’authentification des utilisateurs et à la consultation de leur profil.  
+Certaines routes liées à la gestion des transactions ont également été implémentées, en plus de la documentation Swagger fournie à titre de spécification.
 
-## Getting Started
+---
 
-### Prerequisites
+## Contexte
 
-Argent Bank uses the following tech stack:
+Ce backend a été conçu pour fonctionner en tandem avec le frontend développé dans le cadre du parcours OpenClassrooms **Intégrateur Web**.  
+Une fois lancé, il permet de tester localement l’application web, y compris l’authentification, la gestion du profil utilisateur et les transactions.
 
-- [Node.js v12](https://nodejs.org/en/)
+🔗 Dépôt GitHub du frontend :  
+[https://github.com/Valerie2a/argent-bank-frontend](https://github.com/Valerie2a/argent-bank-frontend)
+
+---
+
+## Prérequis
+
+- [Node.js v18+](https://nodejs.org/)
 - [MongoDB Community Server](https://www.mongodb.com/try/download/community)
 
-Please make sure you have the right versions and download both packages. You can verify this by using the following commands in your terminal:
+Vérifiez que Node.js et MongoDB sont bien installés :
 
 ```bash
-# Check Node.js version
 node --version
-
-# Check Mongo version
 mongo --version
 ```
 
-### Instructions
+---
 
-1. Fork this repo
-1. Clone the repo onto your computer
-1. Open a terminal window in the cloned project
-1. Run the following commands:
+## Installation
+
+### Cloner ce dépôt
 
 ```bash
-# Install dependencies
+git clone https://github.com/Valerie2a/ArgentBank-Backend.git
+cd ArgentBank-Backend
+```
+
+### Installer les dépendances
+
+```bash
 npm install
+```
 
-# Start local dev server
+### Lancer le serveur de développement
+
+```bash
 npm run dev:server
+```
 
-# Populate database with two users
+Le backend sera accessible à l’adresse :  
+[http://localhost:3001](http://localhost:3001)
+
+### Remplir la base de données avec deux utilisateurs de test
+
+```bash
 npm run populate-db
 ```
 
-Your server should now be running at http://locahost:3001 and you will now have two users in your MongoDB database!
+---
 
-## Populated Database Data
+## Comptes de test
 
-Once you run the `populate-db` script, you should have two users in your database:
+Ces identifiants peuvent être utilisés pour se connecter à l’application via le frontend :
 
-### Tony Stark
+| Prénom | Nom    | Email             | Mot de passe   |
+|--------|--------|-------------------|----------------|
+| Tony   | Stark  | tony@stark.com    | password123    |
+| Steve  | Rogers | steve@rogers.com  | password456    |
 
-- First Name: `Tony`
-- Last Name: `Stark`
-- Email: `tony@stark.com`
-- Password: `password123`
+---
 
-### Steve Rogers
+## Documentation de l’API
 
-- First Name: `Steve`,
-- Last Name: `Rogers`,
-- Email: `steve@rogers.com`,
-- Password: `password456`
+Une fois le serveur lancé, la documentation Swagger est disponible à cette adresse :  
+[http://localhost:3001/api-docs](http://localhost:3001/api-docs)
 
-## API Documentation
+---
 
-To learn more about how the API works, once you have started your local environment, you can visit: http://localhost:3001/api-docs
+## Spécification Swagger des transactions
 
-## Design Assets
+Dans le cadre de la phase 2 du projet, une **documentation Swagger** a été rédigée pour proposer des routes destinées à la gestion des transactions (lecture, édition, etc.).  
+Ces routes sont décrites dans un fichier YAML au format Swagger 2.0.
 
-Static HTML and CSS has been created for most of the site and is located in: `/designs`.
+Bien que seule la documentation ait été demandée, **certaines de ces routes ont été effectivement implémentées dans le backend**, afin de permettre leur utilisation via l’interface frontend.
 
-For some of the dynamic features, like toggling user editing, there is a mock-up for it in `/designs/wireframes/edit-user-name.png`.
+---
 
-And for the API model that you will be proposing for transactitons, the wireframe can be found in `/designs/wireframes/transactions.png`.
+
+
